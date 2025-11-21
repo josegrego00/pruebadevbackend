@@ -27,6 +27,15 @@ de stock en tiempo real.
 • 🌩️ Base de datos MySQL alojada en la nube
 • 📦 Maven - Gestión de dependencias y build
 
+🐳 Contenerización
+
+- **Docker** - Contenerización de la aplicación
+- **Docker Compose** - Orquestación de servicios
+
+EJECUTAR CON DOCKER:
+docker run -p 8080:8080 api-franquicias
+
+
 📊 ESTRUCTURA DE LA API
 
 🏢 ENTIDADES PRINCIPALES
