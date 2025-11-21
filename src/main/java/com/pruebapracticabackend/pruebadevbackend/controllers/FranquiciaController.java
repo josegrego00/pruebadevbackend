@@ -16,6 +16,8 @@ import com.pruebapracticabackend.pruebadevbackend.services.ProductoService;
 import com.pruebapracticabackend.pruebadevbackend.services.SucursalService;
 
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 
