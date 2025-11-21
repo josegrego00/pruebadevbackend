@@ -1,95 +1,116 @@
-# pruebadevbackend
+🏢 API DE GESTIÓN DE FRANQUICIAS (Prueba Tecnica Backend)
 
-# API de Gestión de Franquicias
-📋 Descripción del Proyecto
-API REST para la gestión completa de franquicias, sucursales y productos. Permite crear franquicias, agregar sucursales, gestionar productos y generar reportes de stock.
+📋 DESCRIPCIÓN
+API REST completa para la gestión integral de franquicias, sucursales y productos. 
+Permite crear franquicias, agregar sucursales, gestionar productos y generar reportes 
+de stock en tiempo real.
 
-🚀 Tecnologías Utilizadas
-Backend
-Java 17 - Lenguaje de programación
+🚀 TECNOLOGÍAS UTILIZADAS
 
-Spring Boot 3.5.8 - Framework principal
+🔧 BACKEND
+• ☕ Java 17 - Lenguaje de programación
+• 🌱 Spring Boot 3.5.8 - Framework principal
+• 🗄️ Spring Data JPA - Persistencia de datos
+• ✅ Spring Validation - Validación de datos
+• 🌐 Spring Web - API REST
 
-Spring Data JPA - Persistencia de datos
+🗃️ BASE DE DATOS
+• 🐬 MySQL - Base de datos relacional
+• 💾 H2 Database - Base de datos en memoria para desarrollo
 
-Spring Validation - Validación de datos
+📚 DOCUMENTACIÓN
+• 📖 SpringDoc OpenAPI 3 - Documentación automática de API
+• 🎨 Swagger UI - Interfaz gráfica para testing
 
-Spring Web - API REST
+☁️ INFRAESTRUCTURA
+• 🖥️ VPS Personal de José Pino - Mi servidor virtual para despliegue
+• 🌩️ Base de datos MySQL alojada en la nube
+• 📦 Maven - Gestión de dependencias y build
 
-Base de Datos
-MySQL - Base de datos relacional
+📊 ESTRUCTURA DE LA API
 
+🏢 ENTIDADES PRINCIPALES
+• Franquicias - Empresas principales
+• Sucursales - Locales de cada franquicia
+• Productos - Artículos ofrecidos en sucursales
 
-Documentación
-SpringDoc OpenAPI 3 - Documentación automática de API
+🔗 ENDPOINTS DISPONIBLES
 
-Swagger UI - Interfaz gráfica para testing
+🏢 FRANQUICIAS
+GET    /api/franquicias                 📋 Listar todas las franquicias
+POST   /api/franquicias                 ➕ Crear nueva franquicia
+PATCH  /api/franquicias/{id}/nombre     ✏️ Actualizar nombre de franquicia
+POST   /api/franquicias/{id}/sucursales 🏪 Agregar sucursal a franquicia
+GET    /api/franquicias/{id}/mstock     📊 Productos con máximo stock por sucursal
 
-Infraestructura
-VPS - Servidor virtual para despliegue
+🏪 SUCURSALES
+POST   /api/sucursales/{id}/productos   📦 Agregar producto a sucursal
+DELETE /api/sucursales/{sucursalId}/productos/{productoId} 🗑️ Eliminar producto
 
-Maven - Gestión de dependencias y build
+📦 PRODUCTOS
+PUT    /api/productos/{id}/stock        📈 Actualizar stock de producto
 
-📊 Estructura de la API
-Entidades Principales
-Franquicias - Empresas principales
+🛠 CARACTERÍSTICAS TÉCNICAS
 
-Sucursales - Locales de cada franquicia
+✅ VALIDACIONES
+• Validación automática con @Valid
+• Manejo centralizado de excepciones
+• Respuestas de error estandarizadas
 
-Productos - Artículos ofrecidos en sucursales
+📚 DOCUMENTACIÓN
+• Documentación automática con Swagger
+• Disponible en: http://localhost:8080/swagger-ui.html
+• Especificación OpenAPI: http://localhost:8080/v3/api-docs
 
-🔗 Endpoints Disponibles
-Franquicias
-GET /api/franquicias - Listar todas las franquicias
+🏗️ PATRONES DE DISEÑO
+• Arquitectura en capas (Controller-Service-Repository)
+• Patrón Mapper para conversión DTO-Entity
+• Inyección de dependencias
 
-POST /api/franquicias - Crear nueva franquicia
+🚀 INSTALACIÓN Y EJECUCIÓN
 
-PATCH /api/franquicias/{id}/nombre - Actualizar nombre de franquicia
+📋 PRERREQUISITOS
+• Java 17
+• Maven 3.6+
+• MySQL 8.0+
 
-POST /api/franquicias/{id}/sucursales - Agregar sucursal a franquicia
+🛠️ PASOS PARA EJECUTAR
+1. Clonar el repositorio
+2. Configurar base de datos en application.properties
+3. Ejecutar: mvn spring-boot:run
+4. Acceder a: http://localhost:8080
 
-GET /api/franquicias/{id}/mstock - Productos con máximo stock por sucursal
+☁️ CONFIGURACIÓN VPS
+• VPS Personal de José Pino utilizado para hosting
+• Base de datos MySQL alojada en la nube
+• Configuración segura y escalable
 
-Sucursales
-POST /api/sucursales/{id}/productos - Agregar producto a sucursal
+📝 EJEMPLOS DE USO
 
-DELETE /api/sucursales/{sucursalId}/productos/{productoId} - Eliminar producto de sucursal
+➕ CREAR FRANQUICIA
+curl -X POST http://localhost:8080/api/franquicias \
+  -H "Content-Type: application/json" \
+  -d '{"nombreFanquicia": "Mi Franquicia"}'
 
-Productos
-PUT /api/productos/{id}/stock - Actualizar stock de producto
+🏪 AGREGAR SUCURSAL
+curl -X POST http://localhost:8080/api/franquicias/1/sucursales \
+  -H "Content-Type: application/json" \
+  -d '{"nombreSucursal": "Sucursal Centro"}'
 
-🛠 Características Técnicas
-Validaciones
-Validación automática con @Valid
+📦 ACTUALIZAR STOCK
+curl -X PUT http://localhost:8080/api/productos/1/stock \
+  -H "Content-Type: application/json" \
+  -d '{"stock": 150}'
 
-Documentación
-Documentación automática con Swagger
+🔮 FUTURAS MEJORAS
+• Autenticación y autorización
+• Paginación en endpoints de listado
+• Cache de consultas frecuentes
+• Métricas y monitoreo
 
-Disponible en: http://localhost:8080/swagger-ui.html
+👨‍💻 DESARROLLADO POR
+José Pino
+Desarrollador Backend - Spring Boot Specialist
 
-Especificación OpenAPI: http://localhost:8080/v3/api-docs
-
-Patrones de Diseño
-Arquitectura en capas (Controller-Service-Repository)
-
-Patrón Mapper para conversión DTO-Entity
-
-Inyección de dependencias
-
-🚀 Instalación y Ejecución
-Prerrequisitos
-Java 17
-
-Maven 3.6+
-
-MySQL 8.0+
-
-Pasos para ejecutar
-Clonar el repositorio
-
-Configurar base de datos en application.properties
-
-Ejecutar: mvn spring-boot:run
-
-Acceder a: http://localhost:8080
-
+💡 NOTA: Esta API está diseñada con las mejores prácticas de desarrollo REST 
+y preparada para entornos de producción.
